@@ -1,0 +1,27 @@
+<div class="chat-container">
+  <div class="messages">
+    <div *ngFor="let msg of messages" [class.user]="msg.role === 'user'" class="message">
+      <div class="bubble">
+        {{ msg.text }}
+        <div class="time">{{ msg.time }}</div>
+      </div>
+    </div>
+  </div>
+
+  <form class="chat-input" (ngSubmit)="send()">
+    <input
+      class="input"
+      [(ngModel)]="prompt"
+      name="prompt"
+      placeholder="Escribe tu pregunta, ej: Explícame derivadas con un ejemplo"
+    />
+    <button class="btn" type="submit">Enviar</button>
+  </form>
+
+  <!-- Sugerencias rápidas -->
+  <div class="chat-suggestions">
+    <button class="chip" type="button" (click)="send('Explícame derivadas como si tuviera 12 años')">📘 Derivadas</button>
+    <button class="chip" type="button" (click)="send('Dame 3 ejercicios de límites con solución paso a paso')">📗 Límites</button>
+    <button class="chip" type="button" (click)="send('Resume la Segunda Guerra Mundial en menos de 10 líneas')">📙 Historia</button>
+  </div>
+</div>

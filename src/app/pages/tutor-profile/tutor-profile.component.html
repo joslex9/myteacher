@@ -1,0 +1,197 @@
+<div class="tutor-profile-shell">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      my<span>TEACHER</span>
+    </div>
+
+    <nav class="menu">
+      <a
+        class="menu-item"
+        routerLink="/tutor/dashboard"
+        routerLinkActive="active"
+      >
+        <span class="icon">🔒</span>
+        <span>Inicio</span>
+      </a>
+
+      <a
+        class="menu-item"
+        routerLink="/calendar"
+        routerLinkActive="active"
+      >
+        <span class="icon">📅</span>
+        <span>Disponibilidad</span>
+      </a>
+
+      <a
+        class="menu-item active"
+        routerLink="/tutor/profile"
+        routerLinkActive="active"
+      >
+        <span class="icon">👤</span>
+        <span>Perfil</span>
+      </a>
+    </nav>
+
+    <div class="bottom-area">
+      <button class="bottom-link" (click)="logout()">
+        <span class="icon">↩</span>
+        <span>Cerrar Sesión</span>
+      </button>
+
+      <button class="bottom-link">
+        <span class="icon">⚙</span>
+        <span>Configuración</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="main-area">
+    <div class="content-grid">
+      <!-- Columna Izquierda: Card del Tutor -->
+      <section class="tutor-card">
+        <div class="avatar-wrap">
+          <img
+            class="avatar"
+            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop"
+            alt="Foto de la tutora"
+          />
+        </div>
+
+        <div class="tutor-name">Dra. Elara Vance</div>
+
+        <div class="tutor-tags">
+          Matemáticas Avanzadas, Física y Química
+        </div>
+
+        <div class="rating-row">
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star">☆</span>
+          <span class="rating-text">4.8</span>
+        </div>
+
+        <div class="section-heading">Acerca de Mí</div>
+
+        <p class="bio">
+          La Dra. Elara Vance es una educadora apasionada con más de 10 años
+          de experiencia en la enseñanza de matemáticas. Se enfoca en aprendizaje
+          amigable y estimulante, ayudando a estudiantes a dominar temas complejos
+          con paciencia y claridad.
+        </p>
+      </section>
+
+      <!-- Columna Derecha: Especialización y Tutorías -->
+      <section class="right-col">
+        <!-- Especialización -->
+        <div class="specialization-card">
+          <div class="specialization-head">
+            <div class="title">Especialización</div>
+            <button class="add-btn" (click)="addSpecialty()">＋</button>
+          </div>
+
+          <div class="chips-row">
+            <span class="chip">Matemáticas Avanzadas</span>
+            <span class="chip">Cálculo</span>
+            <span class="chip">Álgebra</span>
+            <span class="chip">Física Cuántica</span>
+            <span class="chip">Termodinámica</span>
+            <span class="chip">Química Orgánica</span>
+            <span class="chip">Bioquímica</span>
+          </div>
+        </div>
+
+        <!-- Tutorías -->
+        <div class="tutorias-card">
+          <div class="tutorias-head">
+            <div class="title">Tutorías</div>
+          </div>
+
+          <table class="tutorias-table">
+            <thead>
+              <tr>
+                <th>Asignatura</th>
+                <th>Fecha</th>
+                <th>Cancelar Tutoría</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Matemáticas<br />
+                  Avanzadas
+                </td>
+                <td>02/9/25</td>
+                <td>
+                  <button
+                    class="btn-cancel"
+                    (click)="cancelTutoring('Matemáticas Avanzadas')"
+                  >
+                    Cancelar
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Física Cuántica</td>
+                <td>12/9/25</td>
+                <td>
+                  <button
+                    class="btn-cancel"
+                    (click)="cancelTutoring('Física Cuántica')"
+                  >
+                    Cancelar
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Química Orgánica</td>
+                <td>22/9/25</td>
+                <td>
+                  <button
+                    class="btn-cancel"
+                    (click)="cancelTutoring('Química Orgánica')"
+                  >
+                    Cancelar
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Programación<br />Python</td>
+                <td>02/10/25</td>
+                <td>
+                  <button
+                    class="btn-cancel"
+                    (click)="cancelTutoring('Programación Python')"
+                  >
+                    Cancelar
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Literatura Española</td>
+                <td>15/10/25</td>
+                <td>
+                  <button
+                    class="btn-cancel"
+                    (click)="cancelTutoring('Literatura Española')"
+                  >
+                    Cancelar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+    </div>
+  </main>
+</div>

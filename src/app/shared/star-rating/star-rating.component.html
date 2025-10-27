@@ -1,0 +1,8 @@
+<div class="rating-row">
+  <div class="stars">
+    <ng-container *ngFor="let s of stars; let i = index">
+      <span class="star" [class.filled]="isFilled(i)">★</span>
+    </ng-container>
+  </div>
+  <div class="score">{{ value.toFixed(1) }}/5</div>
+</div>

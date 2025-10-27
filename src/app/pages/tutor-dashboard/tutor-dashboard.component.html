@@ -1,0 +1,181 @@
+<div class="tutor-dashboard-shell">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      my<i>TEACHER</i>
+    </div>
+
+    <nav class="menu">
+      <a
+        class="menu-item"
+        routerLink="/tutor/dashboard"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <span>🏠</span>
+        <span>Inicio</span>
+      </a>
+
+      <a
+        class="menu-item"
+        routerLink="/tutor/calendar"
+        routerLinkActive="active"
+      >
+        <span>📅</span>
+        <span>Calendario</span>
+      </a>
+
+      <a
+        class="menu-item"
+        routerLink="/tutor/profile"
+        routerLinkActive="active"
+      >
+        <span>👤</span>
+        <span>Perfil</span>
+      </a>
+    </nav>
+
+    <div class="bottom-area">
+      <button class="bottom-link" type="button">
+        <span>⚙</span>
+        <span>Configuración</span>
+      </button>
+
+      <button
+        class="bottom-link logout"
+        type="button"
+        (click)="logout()"
+      >
+        <span>↩</span>
+        <span>Cerrar Sesión</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-area">
+    <!-- Título principal -->
+    <h1 class="page-title">Panel de Control del Tutor</h1>
+
+    <!-- Resumen -->
+    <section>
+      <h2 class="section-heading">Resumen de mis Clases</h2>
+
+      <div class="resume-row">
+        <!-- Tarjeta 1: Clases Completadas -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <span>Clases Completadas</span>
+            <span class="stat-icon">📋</span>
+          </div>
+
+          <p class="stat-value">
+            {{ clasesCompletadas }}
+          </p>
+
+          <p class="stat-subtext">
+            Último mes: +{{ deltaClasesMes }}
+          </p>
+        </div>
+
+        <!-- Tarjeta 2: Horas de Tutoría -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <span>Horas de Tutoría</span>
+            <span class="stat-icon">🕒</span>
+          </div>
+
+          <p class="stat-value">
+            {{ horasTutoria }}
+          </p>
+
+          <p class="stat-subtext">
+            Última semana: ~{{ horasUltimaSemana }}h
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabla de Tutorías -->
+    <section class="tutorias-wrapper">
+      <div class="tutorias-table-card">
+        <header class="tutorias-header">
+          <h3 class="tutorias-title">Agregar Tutoría</h3>
+
+          <button
+            class="add-class-btn"
+            type="button"
+            (click)="crearTutoria()"
+            aria-label="Agregar nueva tutoría"
+          >
+            +
+          </button>
+        </header>
+
+        <table class="tutorias-table">
+          <thead>
+            <tr>
+              <th>Asignatura</th>
+              <th>Hora</th>
+              <th>Fecha</th>
+              <th>Horas de Tutoría</th>
+              <th>Iniciar Tutoría</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let clase of tutorias">
+              <!-- Asignatura -->
+              <td>
+                <span class="subject-name">
+                  {{ clase.materia }}
+                </span>
+                <span class="subject-extra">
+                  {{ clase.detalle }}
+                </span>
+              </td>
+
+              <!-- Hora -->
+              <td>
+                <span class="subject-name">
+                  {{ clase.hora }}
+                </span>
+                <span class="subject-extra">
+                  {{ clase.horaExtra }}
+                </span>
+              </td>
+
+              <!-- Fecha -->
+              <td>
+                {{ clase.fecha }}
+              </td>
+
+              <!-- Duración -->
+              <td>
+                {{ clase.duracionHoras }}
+              </td>
+
+              <!-- Acción -->
+              <td>
+                <button
+                  class="start-btn"
+                  type="button"
+                  (click)="iniciarTutoria(clase)"
+                >
+                  Iniciar
+                </button>
+              </td>
+            </tr>
+
+            <!-- fallback si no hay tutorías -->
+            <tr *ngIf="tutorias?.length === 0">
+              <td colspan="5" style="color:#6b7280; font-size:13px; padding:24px;">
+                No tienes tutorías programadas.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>

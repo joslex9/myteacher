@@ -1,0 +1,195 @@
+<div class="student-dashboard-shell">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      my<span>TEACHER</span>
+    </div>
+
+    <nav class="menu">
+      <a
+        class="menu-item"
+        routerLink="/student/dashboard"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Inicio
+      </a>
+
+      <a
+        class="menu-item"
+        routerLink="/calendar"
+        routerLinkActive="active"
+      >
+        Calendario
+      </a>
+
+      <a
+        class="menu-item"
+        routerLink="/student/profile"
+        routerLinkActive="active"
+      >
+        Perfil
+      </a>
+    </nav>
+
+    <div class="bottom-area">
+      <button class="logout-btn" (click)="logout()">
+        Cerrar Sesión
+      </button>
+    </div>
+  </aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="main-area">
+    <section class="page-header">
+      <h2>Dashboard del Estudiante</h2>
+    </section>
+
+    <div class="content-layout">
+      <!-- Columna izquierda -->
+      <div class="left-column">
+        <!-- Buscar tutor -->
+        <section class="card">
+          <h3>Encuentra un Tutor</h3>
+          <div class="search-row">
+            <input
+              class="input"
+              placeholder="Buscar por materias o palabras clave..."
+              type="text"
+            />
+            <button class="btn primary">Buscar</button>
+          </div>
+        </section>
+
+        <!-- Tutorías Próximas -->
+        <section class="card">
+          <h3>Tutorías Próximas</h3>
+
+          <div class="session-row">
+            <div class="info">
+              <div>
+                Matemáticas con <strong>Dra. Ana Gómez</strong>
+              </div>
+              <div class="muted">
+                24 de Octubre • 10:00 AM
+              </div>
+            </div>
+
+            <button class="btn join-btn" routerLink="/video-call">
+              Unirse
+            </button>
+          </div>
+
+          <div class="session-row">
+            <div class="info">
+              <div>
+                Física con <strong>Prof. Marcos Díaz</strong>
+              </div>
+              <div class="muted">
+                25 de Octubre • 03:00 PM
+              </div>
+            </div>
+
+            <button class="btn join-btn" routerLink="/video-call">
+              Unirse
+            </button>
+          </div>
+        </section>
+
+        <!-- Próximas Sesiones -->
+        <section class="card">
+          <h3>Próximas Sesiones</h3>
+
+          <div class="session-row">
+            <div class="info">
+              <div><strong>Cálculo</strong></div>
+              <div class="muted">
+                Con Andrés López • 18-03-2024 09:00 AM
+              </div>
+            </div>
+
+            <button class="btn join-btn" routerLink="/video-call">
+              Unirse
+            </button>
+          </div>
+
+          <div class="session-row">
+            <div class="info">
+              <div><strong>Historia del Arte</strong></div>
+              <div class="muted">
+                Con Valeria Ruiz • 18-03-2024 03:00 PM
+              </div>
+            </div>
+
+            <button class="btn join-btn" routerLink="/video-call">
+              Unirse
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <!-- Columna derecha: Chat IA -->
+      <aside class="chat-column">
+        <section class="chat-card">
+          <div class="chat-head">
+            <div>
+              <div class="chat-title">Asistente IA</div>
+              <div class="chat-sub">Pregúntame cualquier duda 📘</div>
+            </div>
+          </div>
+
+          <div class="chat-messages">
+            <div class="msg msg-ai">
+              Hola 👋 Soy tu asistente de estudio.
+              ¿En qué materia necesitas ayuda hoy?
+            </div>
+
+            <div class="msg msg-user">
+              Explícame derivadas como si tuviera 12 años.
+            </div>
+
+            <div class="msg msg-ai">
+              Claro. Una derivada es como medir qué tan rápido
+              está cambiando algo justo en este instante...
+            </div>
+          </div>
+
+          <form class="chat-input-row" (submit)="sendMessage($event)">
+            <input
+              class="chat-input"
+              [(ngModel)]="prompt"
+              name="prompt"
+              placeholder="Escribe tu pregunta aquí..."
+            />
+            <button class="btn primary send-btn" type="submit">
+              Enviar
+            </button>
+          </form>
+
+          <div class="quick-suggestions">
+            <button
+              class="chip"
+              (click)="quickAsk('Dame 5 ejercicios de límites con solución paso a paso.')"
+            >
+              Ejercicios de Límites
+            </button>
+
+            <button
+              class="chip"
+              (click)="quickAsk('Resúmeme la Revolución Francesa en menos de 10 líneas.')"
+            >
+              Historia rápida
+            </button>
+
+            <button
+              class="chip"
+              (click)="quickAsk('Explícame cómo usar fórmulas de MRU con ejemplo.')"
+            >
+              Física básica
+            </button>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </main>
+</div>

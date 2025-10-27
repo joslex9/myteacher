@@ -1,0 +1,27 @@
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+}
+
+.star {
+  font-size: 18px;
+  line-height: 1;
+  color: #d1d5db; /* gris claro */
+}
+
+.star.filled {
+  color: #f59e0b; /* amarillo tipo "estrella" */
+  text-shadow: 0 0 4px rgba(251,191,36,0.6);
+}
+
+.score {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 14px;
+}
